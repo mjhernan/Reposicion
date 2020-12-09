@@ -3,6 +3,10 @@ class Animal:
     self._esperanzaVida = esperanzaVida
     self._nombre = nombre
 
+class Invertebrados (Animal):
+  def __init__(self, habitat):
+    self.habitat = habitat
+
 class Vertebrados (Animal):
   def __init__(self, cantidadHuesos):
     self._cantidadHuesos = cantidadHuesos

@@ -9,6 +9,14 @@ class Animal {
     }
 }
 
+class Invertebrados : Animal {
+    std::string habitat;
+
+    Invertebrados::Invertebrados (std::string habitat) {
+        this.habitat = habitat;
+    }
+}
+
 class Vertebrados : Animal {
     protected:
     int cantidadHuesos;
@@ -38,6 +46,6 @@ class Reptiles : Vertebrados {
     std::string tipoEscamas;
 
     Reptiles::Reptiles (std::string escamas) {
-        
+
     }
 }
