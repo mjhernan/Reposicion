@@ -2,22 +2,19 @@ class Persona {
     protected:
     std::string nombre;
     unsigned int cedula;
-    unsigned int edad;
 
-    Persona::Persona (std::string nombre, unsigned int cedula, unsigned int edad){
+    public:
+    Persona::Persona (std::string nombre, unsigned int cedula){
         this.nombre = nombre;
         this.cedula = cedula;
-        this.edad = edad;
     }
 }
 
 class Estudiante : Persona {
-    unsigned int carnet;
     std::string carrera;
     unsigned int creditosAprobados;
 
-    Estudiante::Estudiante (unsigned int carnet, std::string carrera, unsigned int creditosAprobados) {
-        this.carnet = carnet;
+    Estudiante::Estudiante (std::string carrera, unsigned int creditosAprobados, std::string nombre, unsigned int cedula) : Persona(nombre, cedula) {
         this.carrera = carrera;
         this.creditosAprobados = creditosAprobados;
     }
@@ -26,11 +23,9 @@ class Estudiante : Persona {
 class Empleados : Persona {
     protected:
     float salario;
-    std::string departamento;
 
-    Empleados::Empleados(float salario, std::string departamento) {
+    Empleados::Empleados(float salario, std::string nombre, unsigned int cedula) : Persona(nombre, cedula) {
         this.salario = salario;
-        this.departamento = departamento;
     }
 }
 
@@ -38,7 +33,7 @@ class Maestro : Empleados {
     unsigned int cursosAsignados;
     bool plaza;
 
-    Maestro::Maestro (unsigned int cursosAsignados, bool plaza) {
+    Maestro::Maestro (unsigned int cursosAsignados, bool plaza, float salario, std::string nombre, unsigned int cedula) : Empleados(salario, nombre, cedula) {
         this.cursosAsignados = cursosAsignados;
         this.plaza = plaza;
     }
@@ -47,7 +42,7 @@ class Maestro : Empleados {
 class Administrativo : Empleados {
     std::string puesto;
 
-    Administrativo::Administrativo (std::string puesto) {
+    Administrativo::Administrativo (std::string puesto, float salario, std::string nombre, unsigned int cedula) : Empleados(salario, nombre, cedula) {
         this.puesto = puesto;
     }
 }

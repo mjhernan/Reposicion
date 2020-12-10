@@ -14,7 +14,7 @@ class Elipse : FiguraGeometrica {
     float ejeMayor;
     float ejeMenor;
 
-    Elipse::Elipse (float excentricidad, float ejeMayor, float ejeMenor) {
+    Elipse::Elipse (float excentricidad, float ejeMayor, float ejeMenor, float area, float perimetro) : FiguraGeometrica(area, perimetro) {
         this.excentricidad = excentricidad;
         this.ejeMayor = ejeMayor;
         this.ejeMenor = ejeMenor;
@@ -22,11 +22,10 @@ class Elipse : FiguraGeometrica {
 }
 
 class Poligono : FiguraGeometrica {
-    protected:
     int cantidadLados;
     float longitudLados;
 
-    Poligono::Poligono (int cantidadLados, float longitudLados) {
+    Poligono::Poligono (int cantidadLados, float longitudLados, float area, float perimetro) : FiguraGeometrica(area, perimetro) {
         this.cantidadLados = cantidadLados;
         this.longitudLados = longitudLados;
     }
